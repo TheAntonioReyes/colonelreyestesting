@@ -1,0 +1,21 @@
+<html>
+<head>
+</head>
+<body>
+Passed <span id="code"></span> as auth code. Window can be closed.
+<script>
+function getUrlParameter(name) {
+	name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+};
+
+var code = getUrlParameter('code');
+var url = 'postman://app/oauth2/callback#access_token=' + code;
+
+document.getElementById('code').innerHTML = code;
+
+window.open(url);
+</script>
+</body>
