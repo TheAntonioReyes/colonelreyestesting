@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!-- saved from url=(0365)https://signin.tradestation.com/login?state=hKFo2SBXNFgtY21uSjMxOTlkUzcybC1pWUpvQVQxNmhkRDRJSqFupWxvZ2luo3RpZNkgN1hybGswbG5zamRuQTJxY1F5T0FQbmsyYnBnR2lmcXCjY2lk2SBEZWVwd2pBSVFNRVBBdEw2MEZsN2h1TVJBVnJ4M2NsWg&client=DeepwjAIQMEPAtL60Fl7huMRAVrx3clZ&protocol=oauth2&response_type=code&redirect_uri=https%3A%2F%2Fauth.tradestation.com%2Fcallback0&scope=openid%20profile -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        
+        <script type="text/javascript" async="" src="./Sign In with TradeStation_files/linkid.js"></script><script type="text/javascript" async="" src="./Sign In with TradeStation_files/analytics.js"></script><script async="" crossorigin="anonymous" src="./Sign In with TradeStation_files/fs.js"></script><script gtm="GTM-5STWGJ9" type="text/javascript" async="" src="./Sign In with TradeStation_files/optimize.js"></script><script type="text/javascript" async="" src="./Sign In with TradeStation_files/js"></script><script async="" src="./Sign In with TradeStation_files/gtm.js"></script><script type="text/javascript">
+            if (self === top) {
+                var antiClickjack = document.getElementById("antiClickjack");
+                antiClickjack.parentNode.removeChild(antiClickjack);
+            } else {
+                top.location = self.location;
+            }
+        </script>
+        <!-- the following 2 scripts are required by Custom UI -->
+        <script src="./Sign In with TradeStation_files/auth0.min.js"></script>
+        <script src="./Sign In with TradeStation_files/object-assign.min.js"></script>
+        <!-- the following script is required by Lock -->
+        <script src="./Sign In with TradeStation_files/lock.min.js"></script>
+        <title>Sign In with TradeStation</title>
+        <link rel="stylesheet" href="./Sign In with TradeStation_files/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="./Sign In with TradeStation_files/main.css">
+        <link rel="icon" href="https://login-assets.tradestation.com/images/TS-favicon.ico">
+    </head>
+    <body id="mainBodyId">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5STWGJ9" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+    
+        <div id="customui-container" style="visibility: visible">
+            <div class="container logo-container">
+                <div class="row">
+                    <div class="col">
+                        <img class="img-fluid ts-logo" src="./Sign In with TradeStation_files/TS_Logo_white.png" alt="TradeStation logo">
+                    </div>
+                </div>
+            </div>
+            <div class="container my-4 content-container">
+                <div class="row px-3">
+                    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 my-4 pr-4 line">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <form id="login-form">
+                                    <div class="form-group text-center">
+                                        <div class="col-sm-12">
+                                            <img src="./Sign In with TradeStation_files/lock.svg">
+                                            <span class="align-middle title">Secure Client Login</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text form-field-icon form-field-border" id="basic-addon1">
+                                                    <img src="./Sign In with TradeStation_files/profile-icn.svg" class="small-form-icon">
+                                                </span>
+                                            </div>
+                                            <input id="username" type="text" class="form-control form-field form-field-border" placeholder="username" aria-label="username" aria-describedby="basic-addon1" tabindex="1" required="" autocomplete="off" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAkCAYAAADo6zjiAAAAAXNSR0IArs4c6QAAAx9JREFUWAndV79LY0EQnjySSAQ1OUG4OxvxR5BALggBi0BEIYUYtLC43v8ghZVgY3V9/oUjpMovEBvRSsGAHrY2Yi7BwlgEREXNzffMLnnP91bzkiDcQNjdmdlvvt3ZnbdxEcvOzs73p6enX9xdaDab36DrlbhcripjHbjd7s2tra2/ZlxXK/gfDjxqNvZyzERumMQPMwkNK+93cCwEMVq7bFiXxqMFg6a/gzextF7nXMXfKhZ24FPl/yYwOztLqVSK0NpJX3cgFArR8PAwobWTvhLgu6/HFa0Vib4SsApo1hkIDAwM0OTkJAUCAbMfObW9ATIp3GLs9/tpY2ODhoaG6OXlhQqFAp2dnelmpzaBrWrlDszPz+vB4axpGi0uLsp5Tm0SQNGRBBQ+fTVJAsfHx9RoNPRgSMH+/r4M7NQmARQd1/b2dlPYcdDGx8epXq/T7e2tUOutymZwfGfAV7LGLoet98GVgcA7c3tqZiJ1JhGRKegp+gfA+Mv4Be+DTyPQ4hiXdeADpG1dUCei0ShNT0/TyMgI3d/fU61Wo3K5TBcXF7bzeBe+dk0gHA7TysoKeb1eGQgHFkRmZmZod3eXTk5OpM3c6ToFExMThuDPz88yBgpaIpHQy7hUmjpd70CxWCSkYHBwkEqlElUqFYrFYrS0tKSH8ng8uv36+toU+nXo5utQtXqrWXpbKFG0MpkMYeV8qnUP1JF2EQWuXSf6SMGBGDhtHx4eZHCsOB6PS6jLy0u6u7uTY3NHQ0XiXbgxG5yMkfP19XUaGxvTp2NH9vb2lFAa/qngHwuT+I10KL0VRp5La2trFAwGdS+kJp/PU7Wqhnx9MymAzab2b4ewIfjq6ipFIhFdhfOQy+Xo/PxcuNi2Xd8CICeTSRn88fGRstmssgC1s+mawPLyMs3NzUlMrB53Hz8hR0dHdHp6KoaGtmsCU1NTBkCfz0f4tQtqhJ10XAk53/ie90SA5WQHDjn6T8EgnU4TDqFKcCNs5LBjAqgbfL8T+J4DtL322wSxVDNpPEg2O04B140rnhhhgAy20BJdocQczAUGsP4BPJYni4VMj2AAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+                                        </div>
+                                        <small id="usernameHelp" class="form-text text-muted text-right">
+                                            <a href="https://clientcenter.tradestation.com/tools/forgotusername.aspx" target="_blank" tabindex="4">Forgot username?</a>
+                                        </small>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text form-field-icon form-field-border" id="basic-addon2">
+                                                    <img src="./Sign In with TradeStation_files/lock-icn.svg" class="small-form-icon">
+                                                </span>
+                                            </div>
+                                            <input id="password" type="password" class="form-control form-field form-field-border" placeholder="password" aria-label="password" aria-describedby="basic-addon2" tabindex="2" required="" autocomplete="off" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAkCAYAAADo6zjiAAAAAXNSR0IArs4c6QAAAx9JREFUWAndV79LY0EQnjySSAQ1OUG4OxvxR5BALggBi0BEIYUYtLC43v8ghZVgY3V9/oUjpMovEBvRSsGAHrY2Yi7BwlgEREXNzffMLnnP91bzkiDcQNjdmdlvvt3ZnbdxEcvOzs73p6enX9xdaDab36DrlbhcripjHbjd7s2tra2/ZlxXK/gfDjxqNvZyzERumMQPMwkNK+93cCwEMVq7bFiXxqMFg6a/gzextF7nXMXfKhZ24FPl/yYwOztLqVSK0NpJX3cgFArR8PAwobWTvhLgu6/HFa0Vib4SsApo1hkIDAwM0OTkJAUCAbMfObW9ATIp3GLs9/tpY2ODhoaG6OXlhQqFAp2dnelmpzaBrWrlDszPz+vB4axpGi0uLsp5Tm0SQNGRBBQ+fTVJAsfHx9RoNPRgSMH+/r4M7NQmARQd1/b2dlPYcdDGx8epXq/T7e2tUOutymZwfGfAV7LGLoet98GVgcA7c3tqZiJ1JhGRKegp+gfA+Mv4Be+DTyPQ4hiXdeADpG1dUCei0ShNT0/TyMgI3d/fU61Wo3K5TBcXF7bzeBe+dk0gHA7TysoKeb1eGQgHFkRmZmZod3eXTk5OpM3c6ToFExMThuDPz88yBgpaIpHQy7hUmjpd70CxWCSkYHBwkEqlElUqFYrFYrS0tKSH8ng8uv36+toU+nXo5utQtXqrWXpbKFG0MpkMYeV8qnUP1JF2EQWuXSf6SMGBGDhtHx4eZHCsOB6PS6jLy0u6u7uTY3NHQ0XiXbgxG5yMkfP19XUaGxvTp2NH9vb2lFAa/qngHwuT+I10KL0VRp5La2trFAwGdS+kJp/PU7Wqhnx9MymAzab2b4ewIfjq6ipFIhFdhfOQy+Xo/PxcuNi2Xd8CICeTSRn88fGRstmssgC1s+mawPLyMs3NzUlMrB53Hz8hR0dHdHp6KoaGtmsCU1NTBkCfz0f4tQtqhJ10XAk53/ie90SA5WQHDjn6T8EgnU4TDqFKcCNs5LBjAqgbfL8T+J4DtL322wSxVDNpPEg2O04B140rnhhhgAy20BJdocQczAUGsP4BPJYni4VMj2AAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+                                        </div>
+                                        <small id="passwordHelp" class="form-text text-muted text-right">
+                                        <a href="https://clientcenter.tradestation.com/tools/forgotpassword.aspx" target="_blank" tabindex="5">Forgot password?</a>
+                                        </small>
+                                    </div>
+                                    <div class="form-group">
+                                        <button id="btn-login" class="btn btn-primary btn-block" tabindex="3">Log in</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <div id="error" class="text-danger invisible">
+                                            <img src="./Sign In with TradeStation_files/alert-icn-red.svg" class="small-form-icon">
+                                            <small id="error-message"></small>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        Need assistance? <a href="https://www.tradestation.com/contact-us/">Contact Us</a><br>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 my-4 pl-4">
+                        <div class="row h-100">
+                            <div class="col-sm-12 my-auto">
+                                <div class="form-group text-center">
+                                    <div id="centerDivPlaceholder"></div>
+                                    <div class="form-group text-center">
+                                        <img src="./Sign In with TradeStation_files/profile.svg" class="profile">
+                                        <span class="align-top title">Don't have an account?</span>
+                                    </div>
+                                    <div class="text-center">
+                                        <a id="openAccountButton" class="btn btn-primary btn-block" href="https://getstarted.tradestation.com/newaccount/preaccount.aspx?offer=3071AEGY" target="_blank" tabindex="7">Open an account</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container footer-container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                        <small>
+                            <a href="https://www.tradestation.com/important-information/online-identity-theft-and-security-reminders/" target="_blank">Security Statement</a>
+                        </small>
+                    </div>
+                    <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                        <small>
+                            <a href="https://www.tradestation.com/important-information/privacy/" target="_blank">Privacy Notice</a>
+                        </small>
+                    </div>
+                    <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                        <small>
+                            <a href="https://www.tradestation.com/important-information/cookies-policy" target="_blank">Cookies Policy</a>                                                 
+                        </small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <small class="text-muted">
+                            <br>
+                            <br>
+                            <span id="bottomDivPlaceholder">TradeStation Securities, Inc., TradeStation Crypto, Inc., and TradeStation Technologies, Inc. are each wholly 
+owned subsidiaries of TradeStation Group, Inc., all operating, and providing products and services, under the 
+TradeStation brand and trademark. You Can Trade, Inc. is also a wholly owned subsidiary of TradeStation Group, 
+Inc., operating under its own brand and trademarks. When applying for, or purchasing, accounts, subscriptions, 
+products and services, it is important that you know which company you will be dealing with. Please 
+<a href="https://uploads.tradestation.com/uploads/tradestation-group-inc-companies.pdf" target="_blank">click here</a> 
+for further important information explaining what this means.<br><br>Past performance, whether actual or 
+indicated by historical tests of strategies, is no guarantee of future performance or success. There is a 
+possibility that you may sustain a loss equal to or greater than your entire investment regardless of which 
+asset class you trade; therefore, you should not invest or risk money that you cannot afford to lose. Online 
+trading is not suitable for all investors. If you are interested in equity options, please view the document titled 
+<a href="https://www.tradestation.com/wp-content/uploads/2019/11/characteristics-and-risks-of-standardized-options.pdf" target="_blank">
+Characteristics and Risks of Standardized Options</a>. Before trading any asset class, customers must read the relevant 
+risk disclosure statements on our <a href="https://www.tradestation.com/important-information/" target="_blank">Important 
+Documents &amp; Information</a> page. System access and trade placement and execution may be delayed or fail due to market 
+volatility and volume, quote delays, system and software errors, Internet traffic, outages and other factors.<br><br>
+Equities, equity options, and commodity futures products and services are offered by TradeStation Securities, Inc. 
+(Member <a href="http://www.nyse.com/" target="_blank" rel="nofollow">NYSE</a>, 
+<a href="http://www.finra.org/" target="_blank" rel="nofollow">FINRA</a>, 
+<a href="http://www.cmegroup.com/" target="_blank" rel="nofollow">CME</a> and 
+<a href="http://www.sipc.org/" target="_blank" rel="nofollow">SIPC</a>). TradeStation Securities, Inc.’s SIPC 
+coverage is available only for securities, and for cash held in connection with the purchase or sale of securities, 
+in equities accounts. Cryptocurrency products and services are offered by TradeStation Crypto, Inc.
+</span>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>var config = JSON.parse(decodeURIComponent(escape(window.atob('eyJpY29uIjoiaHR0cHM6Ly9sb2dpbi1hc3NldHMudHJhZGVzdGF0aW9uLmNvbS9pbWFnZXMvVFMtTG9nby03NXB4LnBuZyIsImFzc2V0c1VybCI6Imh0dHBzOi8vY29uZmlnLnRzbG9naW4uYXV0aDAuY29tLyIsImF1dGgwRG9tYWluIjoic2lnbmluLnRyYWRlc3RhdGlvbi5jb20iLCJhdXRoMFRlbmFudCI6InRyYWRlc3RhdGlvbi1wcm9kIiwiY2xpZW50Q29uZmlndXJhdGlvbkJhc2VVcmwiOiJodHRwczovL3NpZ25pbi50cmFkZXN0YXRpb24uY29tLyIsImNhbGxiYWNrT25Mb2NhdGlvbkhhc2giOmZhbHNlLCJjYWxsYmFja1VSTCI6Imh0dHBzOi8vYXV0aC50cmFkZXN0YXRpb24uY29tL2NhbGxiYWNrMCIsImNkbiI6Imh0dHBzOi8vY29uZmlnLnRzbG9naW4uYXV0aDAuY29tLyIsImNsaWVudElEIjoiRGVlcHdqQUlRTUVQQXRMNjBGbDdodU1SQVZyeDNjbFoiLCJkaWN0Ijp7InNpZ25pbiI6eyJ0aXRsZSI6IkNsaWVudCBDZW50ZXIgLSBMZWdhY3lBdXRoIn19LCJleHRyYVBhcmFtcyI6eyJwcm90b2NvbCI6Im9hdXRoMiIsInJlc3BvbnNlX3R5cGUiOiJjb2RlIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSIsIl9jc3JmIjoiYXhua0VwWWktT0wxeWtsRHlYak5KaVQ0QS15Q3oydXB2VFlzIiwiX2ludHN0YXRlIjoiZGVwcmVjYXRlZCIsInN0YXRlIjoiaEtGbzJTQlhORmd0WTIxdVNqTXhPVGxrVXpjeWJDMXBXVXB2UVZReE5taGtSRFJKU3FGdXBXeHZaMmx1bzNScFpOa2dOMWh5Ykdzd2JHNXphbVJ1UVRKeFkxRjVUMEZRYm1zeVluQm5SMmxtY1hDalkybGsyU0JFWldWd2QycEJTVkZOUlZCQmRFdzJNRVpzTjJoMVRWSkJWbko0TTJOc1dnIn0sImludGVybmFsT3B0aW9ucyI6eyJwcm90b2NvbCI6Im9hdXRoMiIsInJlc3BvbnNlX3R5cGUiOiJjb2RlIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSIsIl9jc3JmIjoiYXhua0VwWWktT0wxeWtsRHlYak5KaVQ0QS15Q3oydXB2VFlzIiwiX2ludHN0YXRlIjoiZGVwcmVjYXRlZCIsInN0YXRlIjoiaEtGbzJTQlhORmd0WTIxdVNqTXhPVGxrVXpjeWJDMXBXVXB2UVZReE5taGtSRFJKU3FGdXBXeHZaMmx1bzNScFpOa2dOMWh5Ykdzd2JHNXphbVJ1UVRKeFkxRjVUMEZRYm1zeVluQm5SMmxtY1hDalkybGsyU0JFWldWd2QycEJTVkZOUlZCQmRFdzJNRVpzTjJoMVRWSkJWbko0TTJOc1dnIn0sIndpZGdldFVybCI6Imh0dHBzOi8vY2RuLmF1dGgwLmNvbS93Mi9hdXRoMC13aWRnZXQtNS4yLm1pbi5qcyIsImlzVGhpcmRQYXJ0eUNsaWVudCI6ZmFsc2UsImF1dGhvcml6YXRpb25TZXJ2ZXIiOnsidXJsIjoiaHR0cHM6Ly9zaWduaW4udHJhZGVzdGF0aW9uLmNvbSIsImlzc3VlciI6Imh0dHBzOi8vc2lnbmluLnRyYWRlc3RhdGlvbi5jb20vIn0sImNvbG9ycyI6eyJwYWdlX2JhY2tncm91bmQiOiIjMDAwMDAwIiwicHJpbWFyeSI6IiMwMDg5Q0YifX0='))));</script>
+        <script src="./Sign In with TradeStation_files/bundle.js"></script>
+    
+
+
+<img src="./Sign In with TradeStation_files/px" width="1" height="1">
+
+<script type="text/javascript" id="">window._fs_debug=!1;window._fs_host="fullstory.com";window._fs_script="edge.fullstory.com/s/fs.js";window._fs_org="Q218D";window._fs_namespace="FullStory";
+(function(f,k,l,m,g,d,a,h){l in f?f.console&&f.console.log&&f.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].'):(a=f[l]=function(c,b,e){a.q?a.q.push([c,b,e]):a._api(c,b,e)},a.q=[],d=k.createElement(m),d.async=1,d.crossOrigin="anonymous",d.src="https://"+_fs_script,h=k.getElementsByTagName(m)[0],h.parentNode.insertBefore(d,h),a.identify=function(c,b,e){a(g,{uid:c},e);b&&a(g,b,e)},a.setUserVars=function(c,b){a(g,c,b)},a.event=function(c,b,e){a("event",{n:c,p:b},e)},a.shutdown=
+function(){a("rec",!1)},a.restart=function(){a("rec",!0)},a.log=function(c,b){a("log",[c,b])},a.consent=function(c){a("consent",!arguments.length||c)},a.identifyAccount=function(c,b){d="account";b=b||{};b.acctId=c;a(d,b)},a.clearUserCookie=function(){})})(window,document,window._fs_namespace,"script","user");</script></body></html>
