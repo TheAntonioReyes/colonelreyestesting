@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jonathan is lame</title>
+	<style type="text/css">
+		h1, h2 {
+			text-align: center;
+			width: 330px;
+		}
+
+		h2 { cursor: pointer; }
+
+		#Grid, .cell {
+			border: 1px solid #d3d6da;
+		}
+
+		#Grid, #inputControl {
+			display: flex;
+			flex-wrap: wrap;
+			margin: 0 10px;
+			padding: 5px;
+			width: 310px;
+		}
+
+		#inputControl {
+			align-items: center;
+			text-align: center;
+			margin-top: 25px;
+		}
+
+		#inputControl .inputs { margin: 0 auto; }
+
+		#inputControl button { 
+			cursor: pointer;
+			margin-left: 15px;
+		}
+
+		.cell {
+			background-color: transparent;
+			flex: 1 1 50px;
+			height: 50px;
+			margin: 5px;
+			width: 50px;
+		}
+
+		.inner {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			transform-style: preserve-3d;
+		}
+
+		.t0 .inner { transition: transform 0.0s; }
+		.t1 .inner { transition: transform 0.8s; }
+		.t2 .inner { transition: transform 0.9s; }
+		.t3 .inner { transition: transform 1.0s; }
+		.t4 .inner { transition: transform 1.1s; }
+		.t5 .inner { transition: transform 1.2s; }
+
+		.tRegTurn.on .inner { transition: transform 0.4s; }
+
+		.front, .back {
+			position: absolute;
+			width: 100%;
+			height:  100%;
+			-webkit-backface-visibility: hidden; /* Safari */
+			backface-visibility: hidden;
+		}
+
+		.front {
+			background-color: #FFF;
+		}
+		
+		.back {
+			color: #FFF;
+			display: flex;
+			font-size: 25px;
+			justify-content: center;
+			align-items: center;
+			text-transform: uppercase;
+			transform: rotateX(180deg);
+		}
+
+		.yellow .back { background-color: #c9b458; }
+		.green .back { background: #6aaa64; }
+
+		.spinOn .inner { transform: rotateX(1260deg); }
+		.spinOff .inner { transform: rotateX(1080deg); }
+
+		.on .inner { 
+			transform: rotateX(180deg);
+			transition: transform 0.0s;
+		}
+	</style>
+	<script type="text/javascript">
+		window.fiveBitAlphabet = {
+			a: [
+				[1,1,1,1,1],
+				[1,0,0,0,1],
+				[1,1,1,1,1],
+				[1,0,0,0,1],
+				[1,0,0,0,1]
+			],
+			b: [
+				[1,1,1,1,0],
+				[1,0,0,0,1],
+				[1,1,1,1,1],
+				[1,0,0,0,1],
+				[1,1,1,1,0]
+			],
+			c: [
+				[1,1,1,1,1],
+				[1,0,0,0,0],
+				[1,0,0,0,0],
+				[1,0,0,0,0],
+				[1,1,1,1,1]
+			],
+			d: [
+				[1,1,1,1,0],
+				[1,0,0,0,1],
+				[1,0,0,0,1],
+				[1,0,0,0,1],
+				[1,1,1,1,0]
+			],
+			e: [
+				[1,1,1,1,1],
+				[1,0,0,0,0],
+				[1,1,1,1,0],
+				[1,0,0,0,0],
+				[1,1,1,1,1]
+			],
+			f: [
+				[1,1,1,1,1],
+				[1,0,0,0,0],
+				[1,1,1,1,0],
+				[1,0,0,0,0],
+				[1,0,0,0,0]
+			],
+			g: [
+				[1,1,1,1,1],
+				[1,0,0,0,0],
+				[1,0,1,1,1],
+				[1,0,0,0,1],
+				[1,1,1,1,1]
+			],
+			h: [
+				[1,0,0,0,1],
+				[1,0,0,0,1],
+				[1,1,1,1,1],
+				[1,0,0,0,1],
+				[1,0,0,0,1]
+			],
+			i: [
+				[1,1,1,1,1],
+				[0,0,1,0,0],
+				[0,0,1,0,0],
+				[0,0,1,0,0],
+				[1,1,1,1,1]
+			],
+			j: [
+				[1,1,1,1,0],
+				[0,0,1,0,0],
+				[0,0,1,0,0],
+				[1,0,1,0,0],
+				[1,1,1,0,0]
+			],
+			k: [
+				[1,0,0,1,0],
+				[1,0,1,0,0],
+				[1,1,0,0,0],
+				[1,0,1,0,0],
+				[1,0,0,1,0]
+			],
+			l: [
+				[1,0,0,0,0],
+				[1,0,0,0,0],
+				[1,0,0,0,0],
+				[1,0,0,0,0],
+				[1,1,1,1,0]
+			],
+			m: [
+				[1,0,0,0,1],
+				[1,1,0,1,1],
+				[1,0,1,0,1],
+				[1,0,0,0,1],
+				[1,0,0,0,1]
+			],
+			n: [
+				[1,0,0,0,1],
+				[1,1,0,0,1],
+				[1,0,1,0,1],
+				[1,0,0,1,1],
+				[1,0,0,0,1]
+			],
+			o: [
+				[1,1,1,1,1],
+				[1,0,0,0,1],
+				[1,0,0,0,1],
+				[1,0,0,0,1],
+				[1,1,1,1,1]
+			],
+			p: [
+				[1,1,1,1,1],
+				[1,0,0,0,1],
+				[1,1,1,1,1],
+				[1,0,0,0,0],
+				[1,0,0,0,0]
+			],
+			q: [
+				[1,1,1,1,1],
+				[1,0,0,0,1],
+				[1,0,0,0,1],
+				[1,0,0,1,1],
+				[1,1,1,1,1]
+			],
+			r: [
+				[1,1,1,1,1],
+				[1,0,0,0,1],
+				[1,1,1,1,1],
+				[1,0,0,1,0],
+				[1,0,0,0,1]
+			],
+			s: [
+				[1,1,1,1,1],
+				[1,0,0,0,0],
+				[1,1,1,1,1],
+				[0,0,0,0,1],
+				[1,1,1,1,1]
+			],
+			t: [
+				[1,1,1,1,1],
+				[0,0,1,0,0],
+				[0,0,1,0,0],
+				[0,0,1,0,0],
+				[0,0,1,0,0]
+			],
+			u: [
+				[1,0,0,0,1],
+				[1,0,0,0,1],
+				[1,0,0,0,1],
+				[1,0,0,0,1],
+				[1,1,1,1,1]
+			],
+			v: [
+				[1,0,0,0,1],
+				[1,0,0,0,1],
+				[0,1,0,1,0],
+				[0,1,0,1,0],
+				[0,0,1,0,0]
+			],
+			w: [
+				[1,0,0,0,1],
+				[1,0,0,0,1],
+				[1,0,1,0,1],
+				[1,1,0,1,1],
+				[1,0,0,0,1]
+			],
+			x: [
+				[1,0,0,0,1],
+				[0,1,0,1,0],
+				[0,0,1,0,0],
+				[0,1,0,1,0],
+				[1,0,0,0,1]
+			],
+			y: [
+				[1,0,0,0,1],
+				[0,1,0,1,0],
+				[0,0,1,0,0],
+				[0,0,1,0,0],
+				[0,0,1,0,0]
+			],
+			z: [
+				[1,1,1,1,1],
+				[0,0,0,1,0],
+				[0,0,1,0,0],
+				[0,1,0,0,0],
+				[1,1,1,1,1]
+			]
+		};
+	</script>
+</head>
+<body>
+	<h1>Wordle Clue of the Day</h1>
+	<h2>Jonathan is a ...</h2>
+	<div id="Grid">
+		<div class="cell" data-row="0" data-col="0">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+		<div class="cell" data-row="0" data-col="1">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+		<div class="cell" data-row="0" data-col="2">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+		<div class="cell" data-row="0" data-col="3">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+		<div class="cell" data-row="0" data-col="4">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+
+
+		<div class="cell" data-row="1" data-col="0">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+		<div class="cell" data-row="1" data-col="1">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+		<div class="cell" data-row="1" data-col="2">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+		<div class="cell" data-row="1" data-col="3">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+		<div class="cell" data-row="1" data-col="4">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+
+
+		<div class="cell" data-row="2" data-col="0">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+		<div class="cell" data-row="2" data-col="1">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+		<div class="cell" data-row="2" data-col="2">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+		<div class="cell" data-row="2" data-col="3">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+		<div class="cell" data-row="2" data-col="4">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+
+
+		<div class="cell" data-row="3" data-col="0">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+		<div class="cell" data-row="3" data-col="1">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+		<div class="cell" data-row="3" data-col="2">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+		<div class="cell" data-row="3" data-col="3">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+		<div class="cell" data-row="3" data-col="4">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+
+
+		<div class="cell" data-row="4" data-col="0">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+		<div class="cell" data-row="4" data-col="1">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+		<div class="cell" data-row="4" data-col="2">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+		<div class="cell" data-row="4" data-col="3">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+		<div class="cell" data-row="4" data-col="4">
+			<div class="inner"><div class="front"></div><div class="back"></div></div>
+		</div>
+	</div>
+	<div id="inputControl">
+		<div class="inputs">
+			<input type="text" placeholder="Enter Word" />
+			<button>GO</button>
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+		let cellCollection = document.getElementsByClassName('cell');
+		let cells = {0:{},1:{},2:{},3:{},4:{}};
+
+		for(let i = 0, len = cellCollection.length; i < len; i++) {
+			let cell = cellCollection[i];
+			cells[cell.getAttribute('data-row')][cell.getAttribute('data-col')] = cell;
+		}
+
+		let showLetter = function(letter, nextAction) {
+			turnOffGrid();
+
+			setTimeout(function() {
+				for(let i = 0, len = cellCollection.length; i < len; i++) {
+					let cell = cellCollection[i];
+					let tTime = "t" + (Math.floor(Math.random() * 5) + 1);
+
+					if(letter[cell.getAttribute('data-row')][cell.getAttribute('data-col')]) {
+						cell.setAttribute('class','cell yellow spinOn ' + tTime);
+					} else {
+						cell.setAttribute('class','cell yellow spinOff ' + tTime);
+					}
+				}
+			}, 100); //force DOM update from turn off grid
+
+			setTimeout(function() {
+				for(let i = 0, len = cellCollection.length; i < len; i++) {
+					let cell = cellCollection[i];
+
+					if(letter[cell.getAttribute('data-row')][cell.getAttribute('data-col')]) {
+						cell.setAttribute('class','cell yellow on');
+					} else {
+						cell.setAttribute('class','cell yellow');
+					}
+				}
+
+				setTimeout(nextAction, 600); //allow current letter to rest for 600ms
+			}, 1200);
+		};
+
+		window.turnOffGrid = function() { turnGrid(); };
+
+		window.turnGrid = function(className) {
+			className = className || '';
+
+			for(let r = 0; r < 5; r++) {
+				for(let c = 0; c < 5; c++) {
+					cells[r][c].setAttribute('class', 'cell ' + className);
+					cells[r][c].getElementsByClassName('back')[0].innerHTML = '';
+				}
+			}
+		};
+
+		let animateWord = function(word, onEnd) {
+			let letter = word.shift();
+
+			if(!letter) {
+				return onEnd();
+			}
+
+			showLetter(fiveBitAlphabet[letter], function(){ animateWord(word, onEnd); });
+		};
+
+		let animateWin = function(word, onEnd) {
+			turnOffGrid();
+
+			let flipRow = function(row, onEnd) {
+				if(row > 4) {
+					return onEnd();
+				}
+
+				for(let c = 0; c < 5; c++) {
+					cells[row][c].setAttribute('class', 'cell green on tRegTurn');
+					if(word[c]) {
+						cells[row][c].getElementsByClassName('back')[0].innerHTML = word[c];
+					}
+				}
+
+				setTimeout(function() {
+					flipRow(++row, onEnd);
+				}, 300); //should match the tRegTurn class =/- 50ms
+			};
+
+			setTimeout(function() {
+				flipRow(0, function(){ console.log('done with win'); onEnd(); });
+			}, 100); //allow DOM to update grid
+		};
+
+		window.startWord = function(myString) {
+			let word = myString.toLowerCase().split('');
+			let showWin = word.length === 5;
+
+
+			animateWord(word, function(){
+				if(showWin) {
+					animateWin(myString, function(){});
+				}
+			});
+		};
+
+		//Event Handling
+		let inputControl = document.getElementById('inputControl');
+		inputControl.getElementsByTagName('button')[0].onclick = () => {
+			let word = inputControl.getElementsByTagName('input')[0].value;
+			if(!word) {
+				alert('Please insert a word');
+
+			//if else --- think about some sort of validation you lazy monkey!!
+
+			} else {
+				window.startWord(word);
+			}
+		}
+
+		let subtitle = document.getElementsByTagName('h2')[0];
+		subtitle.onclick = () => {
+			let newSub = window.prompt('Enter Subtitle');
+			subtitle.innerHTML = newSub;
+		};
+	</script>
+</body>
