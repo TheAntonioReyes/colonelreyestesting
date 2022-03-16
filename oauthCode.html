@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <style>
+        body {
+            background: #000;
+        }
+
+        #Box {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            flex-flow: column;
+        }
+
+        h1 { margin: 50px 0; }
+
+        h1, h2 {
+            color: #FFF;
+            text-align: center;
+            display: flex;
+            cursor: pointer;
+        }
+
+        img { 
+            width: 200px;
+            display: flex;
+        }
+    </style>
+</head>
+  
+<body>
+    <div id="Box">
+        <h1>&uarr; Your Auth Code &darr;</h1>
+        <h2 id="Code" title="Click to copy"></h2>
+        <img src="media/images/webuser.png" />
+    </div>
+
+
+    <script type="text/javascript">
+        let code = document.getElementById('Code');
+        
+        code.addEventListener('click', function() {
+            var range = document.createRange();
+            range.selectNodeContents(code);
+            var sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+            try {
+                var successful = document.execCommand('copy');
+                var msg = successful ? 'successful' : 'unsuccessful';
+                console.log('Copy command was ' + msg);
+            }
+            catch (err) {
+                console.log('Oops, unable to copy');
+            }
+        });
+
+        const params = new Proxy(new URLSearchParams(window.location.search), {
+            get: (searchParams, prop) => searchParams.get(prop),
+        });
+        
+        let authCode = params.code;
+        code.innerHTML = authCode;
+
+    </script>
+
+</body>
+  
+</html>
