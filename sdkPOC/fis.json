@@ -1,0 +1,68 @@
+[
+    {
+        "provider_id": "bankofamerica",
+        "display_name": "Bank of America",
+        "logo": "https://cdn.akoya.com/assets/providers/bankofamerica/logo.png",
+        "icon": "https://cdn.akoya.com/assets/providers/bankofamerica/icon.png"
+    },
+    {
+        "provider_id": "capitalone",
+        "display_name": "Capital One",
+        "logo": "https://cdn.akoya.com/assets/providers/capitalone/logo.png",
+        "icon": "https://cdn.akoya.com/assets/providers/capitalone/icon.png"
+    },
+    {
+        "provider_id": "chase",
+        "display_name": "Chase",
+        "logo": "https://cdn.akoya.com/assets/providers/chase/logo.png",
+        "icon": "https://cdn.akoya.com/assets/providers/chase/icon.png"
+    },
+    {
+        "provider_id": "citi",
+        "display_name": "Citibank",
+        "logo": "https://cdn.akoya.com/assets/providers/citi/logo.png",
+        "icon": "https://cdn.akoya.com/assets/providers/citi/icon.png"
+    },
+    {
+        "provider_id": "empower",
+        "display_name": "Empower Retirement",
+        "logo": "https://cdn.akoya.com/assets/providers/empower/logo.png",
+        "icon": "https://cdn.akoya.com/assets/providers/empower/icon.png"
+    },
+    {
+        "provider_id": "fidelity",
+        "display_name": "Fidelity Investments",
+        "logo": "https://cdn.akoya.com/assets/providers/fidelity/logo.png",
+        "icon": "https://cdn.akoya.com/assets/providers/fidelity/icon.png"
+    },
+    {
+        "provider_id": "keybank",
+        "display_name": "KeyBank",
+        "logo": "https://cdn.akoya.com/assets/providers/keybank/logo.png",
+        "icon": "https://cdn.akoya.com/assets/providers/keybank/icon.png"
+    },
+    {
+        "provider_id": "pnc",
+        "display_name": "PNC Bank",
+        "logo": "https://cdn.akoya.com/assets/providers/pnc/logo.png",
+        "icon": "https://cdn.akoya.com/assets/providers/pnc/icon.png"
+    },
+    {
+        "provider_id": "td",
+        "display_name": "TD Bank",
+        "logo": "https://cdn.akoya.com/assets/providers/td/logo.png",
+        "icon": "https://cdn.akoya.com/assets/providers/td/icon.png"
+    },
+    {
+        "provider_id": "usbank",
+        "display_name": "U.S. Bank",
+        "logo": "https://cdn.akoya.com/assets/providers/usbank/logo.png",
+        "icon": "https://cdn.akoya.com/assets/providers/usbank/icon.png"
+    },
+    {
+        "provider_id": "wellsfargo",
+        "display_name": "Wells Fargo",
+        "logo": "https://cdn.akoya.com/assets/providers/wellsfargo/logo.png",
+        "icon": "https://cdn.akoya.com/assets/providers/wellsfargo/icon.png"
+    }
+]
