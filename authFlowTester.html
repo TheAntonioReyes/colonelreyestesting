@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OAuth Redirect</title>
+    <script>
+      (function redirectWithQueryParams() {
+        var target = new URL("oauthflowtester://oauth/callback");
+        var params = new URLSearchParams(window.location.search);
+
+        params.forEach(function (value, key) {
+          target.searchParams.append(key, value);
+        });
+
+        window.location.replace(target.toString());
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecting...</p>
+  </body>
+</html>
