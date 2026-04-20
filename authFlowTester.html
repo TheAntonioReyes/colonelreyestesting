@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OAuth Redirect</title>
+  </head>
+  <body>
+    <p>Authoriization Complete</p>
+    <button type="button" onclick="window.close()">Close</button>
+
     <script>
       (function redirectWithQueryParams() {
         var target = new URL("oauthflowtester://oauth/callback");
@@ -16,9 +21,5 @@
         window.location.replace(target.toString());
       })();
     </script>
-  </head>
-  <body>
-    <p>Authoriization Complete</p>
-    <button type="button" onclick="window.close()">Close</button>
   </body>
 </html>
