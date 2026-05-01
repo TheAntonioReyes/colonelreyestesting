@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appID": "com.oauthflowtester.app",
+        "paths": ["/authFlowTester.html"]
+      }
+    ]
+  }
+}
